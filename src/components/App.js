@@ -6,8 +6,7 @@ import { withRouter } from 'react-router';
 
 function mapStateToProps(state) {
   return {
-    recipes: state.recipes,
-    comments: state.comments
+    recipes: state.recipes
   };
 }
 

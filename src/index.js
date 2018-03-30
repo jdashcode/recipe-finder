@@ -7,7 +7,6 @@ import rootReducer from './redux/reducer';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import thunk from 'redux-thunk';
-import { database } from './database/config';
 
 const store = createStore(
   rootReducer,

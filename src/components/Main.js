@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RecipeList from './RecipeList';
-import AddPhoto from './AddPhoto';
 import Single from './Single';
 import { Route, Link } from 'react-router-dom';
 
@@ -13,13 +12,6 @@ class Main extends Component {
     this.props.startLoadingRecipes().then(() => {
       this.setState({ loading: false });
     });
-
-    this.props.startLoadingComments();
-  }
-
-  componentDidUpdate() {
-    // this.props.startLoadingRecipes();
-    // this.props.startLoadingComments();
   }
 
   render() {
@@ -46,10 +38,6 @@ class Main extends Component {
               </div>
             </div>
           )}
-        />
-        <Route
-          path="/AddPhoto"
-          render={({ history }) => <AddPhoto {...this.props} />}
         />
 
         <Route

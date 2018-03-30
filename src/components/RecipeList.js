@@ -1,7 +1,6 @@
 import React from 'react';
 import Recipe from './Recipe';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 function RecipeList(props) {
   return (

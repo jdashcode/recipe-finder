@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Recipe from './Recipe';
-import Comments from './Comments';
 import { Link } from 'react-router-dom';
 
 class Single extends Component {
@@ -9,9 +7,6 @@ class Single extends Component {
     const match = this.props.match;
     const id = match.params.id;
     const recipe = recipes.find(recipe => recipe.meals[0].idMeal === id);
-    const index = this.props.recipes.findIndex(
-      recipe => recipe.meals[0].idMeal === id
-    );
     let ingredients = [];
     if (this.props.loading === true) {
       return <div className="loader">...loading</div>;
