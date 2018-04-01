@@ -59,24 +59,97 @@ body {
     }
   }
 
-  .single-recipe {
-    .nav-banner {
-      background-color: #444;
-      height: 60px;
-      width: 100%;
+  .nav-banner {
+    background-color: #444;
+    height: 48px;
+    width: 100%;
+
+    .back-btn {
+      color: #fff;
+      font-size: 32px;
+      position: relative;
+      top: 45%;
+      transform: translateY(-50%);
+      margin-left: 12px;
     }
+
+    .fav-btn {
+      color: #fff;
+      font-size: 32px;
+      position: relative;
+      float: right;
+      top: 45%;
+      transform: translateY(-50%);
+      margin-right: 12px;
+    }
+
+    form {
+      display: inline-block;
+      width: 85%;
+
+      .search-input {
+        margin-left: 24px;
+        background: none;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-family: 'Avenir', sans-serif;
+        font-size: 20px;
+        width: 100%;
+
+        &::placeholder {
+          /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: #ccc;
+          opacity: 1; /* Firefox */
+        }
+      }
+    }
+  }
+
+  .search-results-container {
+    a {
+      text-decoration: none;
+      color: #000;
+
+      .search-result {
+        list-style-type: none;
+        font-family: 'Avenir', sans-serif;
+        font-size: 24px;
+        margin: 24px 12px;
+      }
+    }
+  }
+
+  .single-recipe {
     h1 {
       margin: 0;
 
       .recipe-img {
-        width: 100%;
-        max-height: 200px;
+        max-width: 100%;
+        max-height: 300px;
+        display: block;
+        margin: 20px auto;
       }
     }
 
     .recipe-contents {
       font-family: 'Avenir', sans-serif;
       margin: 0 12px;
+    }
+  }
+
+  .search-btn-container {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    background-color: #e03225;
+    border-radius: 50%;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+    .search-btn {
+      padding: 20px;
+      color: #fff;
+      font-size: 28px;
     }
   }
 }
@@ -88,6 +161,16 @@ body {
         padding: 0;
         margin: 0 0 2rem 0;
         flex-basis: unset;
+      }
+    }
+    .single-recipe {
+      h1 {
+        margin: 0;
+        .recipe-img {
+          width: 100%;
+          max-height: 200px;
+          margin: 0;
+        }
       }
     }
   }

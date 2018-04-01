@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
 
 class Single extends Component {
+  componentWillUnmount() {
+    this.props.startLoadingResults([]);
+  }
+
   render() {
     const recipes = this.props.recipes;
+    const results = this.props.results;
     const match = this.props.match;
     const id = match.params.id;
-    const recipe = recipes.find(recipe => recipe.meals[0].idMeal === id);
+    let recipe, meal;
+
+    if (results.length === 0) {
+      recipe = recipes.find(recipe => recipe.meals[0].idMeal === id);
+      meal = recipe.meals[0];
+    } else {
+      recipe = results.meals.find(recipe => recipe.idMeal === id);
+      meal = recipe;
+    }
     let ingredients = [];
     if (this.props.loading === true) {
       return <div className="loader">...loading</div>;
     } else if (recipe) {
-      const meal = recipe.meals[0];
-
       // get ingredients
       for (const prop in meal) {
         if (prop.indexOf('strIngredient') > -1 && meal[prop]) {
@@ -23,11 +35,12 @@ class Single extends Component {
 
       return (
         <div className="single-recipe">
-          <Link to="/">
-            <div className="nav-banner">
-              <i className="fas fa-arrow-left" />
-            </div>
-          </Link>
+          <div className="nav-banner">
+            <Link to="/">
+              <FontAwesome className="back-btn" name="arrow-left" />
+            </Link>
+            <FontAwesome className="fav-btn" name="heart" />
+          </div>
           <h1>
             <img
               className="recipe-img"
@@ -48,7 +61,17 @@ class Single extends Component {
         </div>
       );
     } else {
-      return <h1>...no recipe found</h1>;
+      return (
+        <div className="single-recipe">
+          <div className="nav-banner">
+            <Link to="/">
+              <FontAwesome className="back-btn" name="arrow-left" />
+            </Link>
+            <FontAwesome className="fav-btn" name="heart" />
+          </div>
+          <h1>...no recipe found</h1>
+        </div>
+      );
     }
   }
 }

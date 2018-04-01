@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import RecipeList from './RecipeList';
 import Single from './Single';
+import SearchBtn from './SearchBtn';
+import Search from './Search';
 import { Route, Link } from 'react-router-dom';
 
 class Main extends Component {
@@ -36,9 +38,16 @@ class Main extends Component {
               <div>
                 <RecipeList {...this.props} />
               </div>
+              <div>
+                <Link to="/search">
+                  <SearchBtn {...this.props} />
+                </Link>
+              </div>
             </div>
           )}
         />
+
+        <Route path="/search" render={params => <Search {...this.props} />} />
 
         <Route
           path="/single/:id"

@@ -42,10 +42,22 @@ export function startLoadingRecipes() {
   };
 }
 
-//action creator
+export function startLoadingResults(results) {
+  return dispatch => {
+    dispatch(loadResults(results));
+  };
+}
+
 export function loadRecipes(recipes) {
   return {
     type: 'LOAD_RECIPES',
     recipes
+  };
+}
+
+export function loadResults(results) {
+  return {
+    type: 'LOAD_RESULTS',
+    results
   };
 }

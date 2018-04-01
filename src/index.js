@@ -7,6 +7,7 @@ import rootReducer from './redux/reducer';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import thunk from 'redux-thunk';
+import 'font-awesome/css/font-awesome.css';
 
 const store = createStore(
   rootReducer,
